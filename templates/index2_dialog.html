@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Goldline | Геодезическая компания</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #ffffff;
+            color: #1a1a1a;
+            line-height: 1.5;
+            scroll-behavior: smooth;
+            top: 0 !important;
+        }
+
+        /* Скрываем баннер Google Translate */
+        .goog-te-banner-frame,
+        .goog-te-menu-frame,
+        .goog-te-toolbar,
+        .skiptranslate,
+        .goog-te-gadget-simple img {
+            display: none !important;
+        }
+
+        .goog-te-gadget {
+            font-size: 0 !important;
+        }
+
+        .goog-te-gadget .goog-te-combo {
+            display: none !important;
+        }
+
+        :root {
+            --white: #ffffff;
+            --black: #000000;
+            --gold: #F5B041;
+            --gold-dark: #e09d32;
+            --gray-light: #f8f9fa;
+            --gray-mid: #e9ecef;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ШАПКА */
+        .header {
+            background-color: var(--white);
+            border-bottom: 2px solid var(--gold);
+            position: sticky;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+        }
+
+        .header-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            padding: 18px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: baseline;
+            gap: 4px;
+            font-weight: 800;
+            font-size: 28px;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-gold {
+            color: var(--gold);
+        }
+
+        .logo-black {
+            color: var(--black);
+        }
+
+        .nav-menu {
+            display: flex;
+            gap: 32px;
+            font-weight: 500;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--black);
+            transition: color 0.2s;
+            font-size: 16px;
+        }
+
+        .nav-menu a:hover {
+            color: var(--gold);
+        }
+
+        .translate-container {
+            position: relative;
+            display: flex;
+            align-items: center;
+        }
+
+        .translate-btn {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .translate-btn i {
+            font-size: 14px;
+        }
+
+        .translate-btn:hover {
+            background-color: var(--gold);
+            color: var(--black);
+        }
+
+        .language-dropdown {
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+            min-width: 220px;
+            max-height: 400px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            border: 1px solid var(--gray-mid);
+        }
+
+        .language-dropdown.show {
+            display: block;
+        }
+
+        .language-dropdown a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 20px;
+            text-decoration: none;
+            color: var(--black);
+            font-size: 14px;
+            transition: background 0.2s;
+            border-bottom: 1px solid var(--gray-mid);
+        }
+
+        .language-dropdown a:last-child {
+            border-bottom: none;
+        }
+
+        .language-dropdown a:hover {
+            background-color: var(--gray-light);
+        }
+
+        .language-dropdown img {
+            width: 24px;
+            height: 16px;
+            object-fit: cover;
+            border-radius: 3px;
+        }
+
+        .contact-header {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.2s;
+            border: none;
+            cursor: pointer;
+            margin-left: 12px;
+        }
+
+        .contact-header:hover {
+            background-color: var(--gold);
+            color: var(--black);
+        }
+
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        /* ГЕРОЙ БЛОК */
+        .hero {
+            position: relative;
+            width: 100%;
+            min-height: 85vh;
+            background: linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.4)), url('https://sun9-69.userapi.com/s/v1/ig2/VCzvtDHIL580duCDPWUSVwUmOWdfN4Lh47p0JfodRsPqeDQr-4OBWLQREduiO5eLQVUiq07SsoJgB03DBM5KrWBL.jpg?quality=95&as=32x18,48x27,72x41,108x61,160x90,240x135,360x203,480x270,540x304,640x360,720x405,1080x608,1280x720,1440x810,1672x941&from=bu&u=4TszUvR07gaHpcQ0PSmb3cd3Y6tusfsd3VHVpQHMQPQ&cs=1672x0') center center/cover no-repeat;
+            background-attachment: fixed;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 900px;
+            padding: 20px;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 6vw, 4.8rem);
+            font-weight: 800;
+            color: var(--white);
+            text-shadow: 0 2px 15px rgba(0,0,0,0.3);
+            margin-bottom: 20px;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-highlight {
+            color: var(--gold);
+            border-bottom: 3px solid var(--gold);
+            display: inline-block;
+        }
+
+        .hero-sub {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.95);
+            font-weight: 500;
+        }
+
+        /* Секции */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 48px;
+            text-align: center;
+            position: relative;
+            color: var(--black);
+        }
+
+        .section-title:after {
+            content: '';
+            display: block;
+            width: 70px;
+            height: 4px;
+            background-color: var(--gold);
+            margin: 16px auto 0;
+            border-radius: 4px;
+        }
+
+        /* Услуги */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 32px;
+        }
+
+        .service-card {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 32px 24px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.05);
+            transition: transform 0.25s ease, box-shadow 0.25s;
+            border: 1px solid var(--gray-mid);
+            text-align: center;
+        }
+
+        .service-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 24px 36px rgba(0,0,0,0.08);
+            border-color: var(--gold);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: var(--gold);
+            margin-bottom: 24px;
+        }
+
+        .service-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 16px;
+            font-weight: 700;
+        }
+
+        .service-card p {
+            color: #4a4a4a;
+            font-size: 0.95rem;
+            line-height: 1.5;
+        }
+
+        /* О компании */
+        .about-section {
+            background-color: var(--gray-light);
+        }
+
+        .about-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .about-text {
+            flex: 1.2;
+            min-width: 280px;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: var(--black);
+            border-left: 5px solid var(--gold);
+            padding-left: 20px;
+        }
+
+        .about-text p {
+            margin-bottom: 20px;
+            font-size: 1rem;
+            color: #2c2c2c;
+            line-height: 1.6;
+        }
+
+        .about-stats {
+            display: flex;
+            gap: 32px;
+            margin-top: 32px;
+            flex-wrap: wrap;
+        }
+
+        .stat-item {
+            text-align: left;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--gold);
+        }
+
+        .about-image {
+            flex: 0.9;
+            min-width: 260px;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 20px 30px -10px rgba(0,0,0,0.1);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.4s;
+        }
+
+        .about-image:hover img {
+            transform: scale(1.02);
+        }
+
+        /* Обратная связь */
+        .callback-wrapper {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 48px;
+            background: #ffffff;
+            border-radius: 32px;
+            padding: 48px 40px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            border: 1px solid rgba(245,176,65,0.2);
+        }
+
+        .callback-text {
+            flex: 1.2;
+        }
+
+        .callback-badge {
+            display: inline-block;
+            background: rgba(245,176,65,0.15);
+            color: var(--gold-dark);
+            padding: 6px 16px;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .callback-title {
+            font-size: 2rem;
+            font-weight: 700;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            color: var(--black);
+        }
+
+        .gold-text {
+            color: var(--gold);
+        }
+
+        .callback-desc {
+            color: #4a4a4a;
+            margin-bottom: 24px;
+            font-size: 1rem;
+        }
+
+        .callback-features {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .callback-features div {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            color: #2c2c2c;
+        }
+
+        .callback-features i {
+            color: var(--gold);
+            font-size: 1.2rem;
+            width: 24px;
+        }
+
+        .callback-form {
+            flex: 0.9;
+            background: var(--gray-light);
+            padding: 32px 28px;
+            border-radius: 28px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
+        }
+
+        .callback-form h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            text-align: center;
+        }
+
+        .input-group {
+            display: flex;
+            align-items: center;
+            background: white;
+            border-radius: 60px;
+            padding: 4px 20px;
+            margin-bottom: 20px;
+            border: 1px solid #e2e8f0;
+            transition: 0.2s;
+        }
+
+        .input-group:focus-within {
+            border-color: var(--gold);
+            box-shadow: 0 0 0 3px rgba(245,176,65,0.2);
+        }
+
+        .input-group i {
+            color: var(--gold);
+            font-size: 1.1rem;
+            margin-right: 12px;
+        }
+
+        .input-group input {
+            border: none;
+            padding: 14px 0;
+            width: 100%;
+            font-size: 1rem;
+            background: transparent;
+            outline: none;
+            font-family: inherit;
+        }
+
+        .callback-submit {
+            background-color: var(--gold);
+            color: var(--black);
+            border: none;
+            width: 100%;
+            padding: 14px;
+            border-radius: 60px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: 0.2s;
+            margin-top: 8px;
+            font-family: inherit;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .callback-submit:hover {
+            background-color: var(--gold-dark);
+            transform: scale(0.98);
+        }
+
+        .privacy-text {
+            font-size: 0.7rem;
+            text-align: center;
+            margin-top: 20px;
+            color: #6c757d;
+        }
+
+        .privacy-text a {
+            color: var(--gold-dark);
+            text-decoration: none;
+        }
+
+        .btn-gold {
+            background-color: var(--gold);
+            color: var(--black);
+            padding: 12px 32px;
+            border-radius: 40px;
+            font-weight: 600;
+            display: inline-block;
+            margin-top: 24px;
+            transition: 0.2s;
+            text-decoration: none;
+        }
+
+        .btn-gold:hover {
+            background-color: var(--gold-dark);
+            transform: scale(0.97);
+        }
+
+        /* Подвал */
+        .footer {
+            background-color: var(--black);
+            color: #dddddd;
+            padding: 56px 0 32px;
+        }
+
+        .footer-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+            margin-bottom: 48px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 180px;
+        }
+
+        .footer-col h4 {
+            color: var(--gold);
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-col p, .footer-col a {
+            color: #c0c0c0;
+            text-decoration: none;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            transition: color 0.2s;
+        }
+
+        .footer-col a:hover {
+            color: var(--gold);
+        }
+
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 16px;
+            display: inline-block;
+        }
+
+        .footer-logo span:first-child {
+            color: var(--gold);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 18px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            font-size: 1.4rem;
+            color: #ccc;
+        }
+
+        .social-links a:hover {
+            color: var(--gold);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #2a2a2a;
+            padding-top: 28px;
+            text-align: center;
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        /* ========== СТИЛИ ДЛЯ ЧАТ-БОТА ========== */
+        .chat-button {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background-color: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            border: none;
+        }
+
+        .chat-button:hover {
+            transform: scale(1.1);
+            background-color: var(--gold-dark);
+        }
+
+        .chat-button i {
+            font-size: 28px;
+            color: var(--black);
+        }
+
+        .chat-window {
+            position: fixed;
+            bottom: 100px;
+            right: 30px;
+            width: 380px;
+            height: 500px;
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            display: none;
+            flex-direction: column;
+            z-index: 1000;
+            overflow: hidden;
+            border: 1px solid var(--gray-mid);
+        }
+
+        .chat-window.show {
+            display: flex;
+        }
+
+        .chat-header {
+            background: var(--gold);
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--black);
+        }
+
+        .chat-header h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .chat-header h3 i {
+            font-size: 20px;
+        }
+
+        .chat-close {
+            background: none;
+            border: none;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--black);
+            transition: 0.2s;
+        }
+
+        .chat-close:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            background: var(--gray-light);
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .message {
+            display: flex;
+            gap: 10px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .message.bot {
+            justify-content: flex-start;
+        }
+
+        .message.user {
+            justify-content: flex-end;
+        }
+
+        .message-content {
+            max-width: 70%;
+            padding: 10px 15px;
+            border-radius: 18px;
+            font-size: 14px;
+            line-height: 1.4;
+        }
+
+        .bot .message-content {
+            background: var(--white);
+            color: var(--black);
+            border-bottom-left-radius: 4px;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .user .message-content {
+            background: var(--gold);
+            color: var(--black);
+            border-bottom-right-radius: 4px;
+        }
+
+        .bot-avatar {
+            width: 32px;
+            height: 32px;
+            background: var(--gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+        }
+
+        .chat-input-area {
+            padding: 15px 20px;
+            background: var(--white);
+            border-top: 1px solid var(--gray-mid);
+            display: flex;
+            gap: 10px;
+        }
+
+        .chat-input {
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid var(--gray-mid);
+            border-radius: 25px;
+            outline: none;
+            font-family: inherit;
+            font-size: 14px;
+            transition: 0.2s;
+        }
+
+        .chat-input:focus {
+            border-color: var(--gold);
+        }
+
+        .chat-send {
+            background: var(--gold);
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: 0.2s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .chat-send:hover {
+            background: var(--gold-dark);
+            transform: scale(1.05);
+        }
+
+        .chat-send i {
+            color: var(--black);
+            font-size: 16px;
+        }
+
+        .typing-indicator {
+            display: flex;
+            gap: 4px;
+            padding: 8px 12px;
+            background: var(--white);
+            border-radius: 18px;
+            width: fit-content;
+        }
+
+        .typing-indicator span {
+            width: 8px;
+            height: 8px;
+            background: #999;
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+
+        .typing-indicator span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-indicator span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typing {
+            0%, 60%, 100% {
+                transform: translateY(0);
+                opacity: 0.5;
+            }
+            30% {
+                transform: translateY(-5px);
+                opacity: 1;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .chat-window {
+                width: calc(100vw - 40px);
+                right: 20px;
+                bottom: 80px;
+                height: 450px;
+            }
+        }
+
+        /* Адаптив */
+        @media (max-width: 860px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 16px;
+            }
+            .nav-menu {
+                gap: 20px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            .hero {
+                min-height: 60vh;
+                background-attachment: scroll;
+            }
+            section {
+                padding: 60px 0;
+            }
+            .about-wrapper {
+                flex-direction: column;
+            }
+            .footer-grid {
+                flex-direction: column;
+                gap: 32px;
+            }
+            .header-actions {
+                width: 100%;
+                justify-content: center;
+            }
+            .callback-wrapper {
+                padding: 32px 24px;
+                flex-direction: column;
+            }
+            .callback-title {
+                font-size: 1.8rem;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .container {
+                padding: 0 16px;
+            }
+            .service-card {
+                padding: 24px 16px;
+            }
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- ШАПКА -->
+<header class="header">
+    <div class="container header-inner">
+        <div class="logo">
+            <span class="logo-gold">GOLD</span><span class="logo-black">LINE</span>
+        </div>
+        <nav class="nav-menu">
+            <a href="#">Главная</a>
+            <a href="#services">Услуги</a>
+            <a href="#about">О компании</a>
+            <a href="#contact-footer">Контакты</a>
+        </nav>
+        <div class="header-actions">
+            <div class="translate-container">
+                <button class="translate-btn" id="translateBtn">
+                    <i class="fas fa-globe"></i> Translate
+                </button>
+                <div class="language-dropdown" id="languageDropdown">
+                    <a href="#" data-lang="ru"><img src="https://flagcdn.com/ru.svg" alt="Русский"> Русский</a>
+                    <a href="#" data-lang="en"><img src="https://flagcdn.com/gb.svg" alt="English"> English</a>
+                    <a href="#" data-lang="zh-CN"><img src="https://flagcdn.com/cn.svg" alt="中文"> 中文</a>
+                    <a href="#" data-lang="es"><img src="https://flagcdn.com/es.svg" alt="Español"> Español</a>
+                    <a href="#" data-lang="fr"><img src="https://flagcdn.com/fr.svg" alt="Français"> Français</a>
+                    <a href="#" data-lang="de"><img src="https://flagcdn.com/de.svg" alt="Deutsch"> Deutsch</a>
+                    <a href="#" data-lang="it"><img src="https://flagcdn.com/it.svg" alt="Italiano"> Italiano</a>
+                    <a href="#" data-lang="pt"><img src="https://flagcdn.com/pt.svg" alt="Português"> Português</a>
+                    <a href="#" data-lang="ar"><img src="https://flagcdn.com/sa.svg" alt="العربية"> العربية</a>
+                    <a href="#" data-lang="ja"><img src="https://flagcdn.com/jp.svg" alt="日本語"> 日本語</a>
+                    <a href="#" data-lang="ko"><img src="https://flagcdn.com/kr.svg" alt="한국어"> 한국어</a>
+                    <a href="#" data-lang="tr"><img src="https://flagcdn.com/tr.svg" alt="Türkçe"> Türkçe</a>
+                </div>
+            </div>
+            <button class="contact-header" onclick="alert('Свяжитесь с нами: +7 (495) 123-45-67 или info@goldline.ru')">Связь с нами</button>
+        </div>
+    </div>
+</header>
+
+<!-- ГЕРОЙ -->
+<section class="hero">
+    <div class="hero-content">
+        <h1>Геодезия <span class="hero-highlight">точности</span><br> для вашего проекта</h1>
+        <div class="hero-sub">Профессиональные инженерные изыскания, лазерное сканирование и контроль строительства</div>
+        <a href="#services" class="btn-gold">Наши услуги →</a>
+    </div>
+</section>
+
+<!-- УСЛУГИ -->
+<section id="services">
+    <div class="container">
+        <h2 class="section-title">Ключевые услуги</h2>
+        <div class="services-grid">
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-drafting-compass"></i></div>
+                <h3>Топографическая съемка</h3>
+                <p>Создание точных цифровых моделей рельефа, планов участков М 1:500, для проектирования и строительства.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-cube"></i></div>
+                <h3>Лазерное сканирование</h3>
+                <p>3D сканирование зданий, промышленных объектов с получением облака точек высокой плотности.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-ruler-combined"></i></div>
+                <h3>Геодезический мониторинг</h3>
+                <p>Наблюдение за деформациями зданий, сооружений, ответственных конструкций в реальном времени.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-building"></i></div>
+                <h3>Исполнительная съемка</h3>
+                <p>Контроль геометрических параметров построенных объектов, проверка соответствия проекту.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-map-marked-alt"></i></div>
+                <h3>Инженерно-геодезические изыскания</h3>
+                <p>Полный комплекс работ для строительства, реконструкции и линейных объектов.</p>
+            </div>
+            <div class="service-card">
+                <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+                <h3>BIM и кадастровые работы</h3>
+                <p>Сопровождение BIM-проектов, межевание, вынос границ участков и кадастровый учет.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ОБРАТНАЯ СВЯЗЬ -->
+<section id="callback" style="background: linear-gradient(135deg, #fef9e6 0%, #ffffff 100%);">
+    <div class="container">
+        <div class="callback-wrapper">
+            <div class="callback-text">
+                <span class="callback-badge"><i class="fas fa-phone-alt"></i> Обратный звонок</span>
+                <h2 class="callback-title">Оставьте заявку —<br> <span class="gold-text">перезвоним за 2 минуты</span></h2>
+                <p class="callback-desc">Наши геодезисты проконсультируют по задачам, рассчитают стоимость и сроки. Работаем по всей России.</p>
+                <div class="callback-features">
+                    <div><i class="fas fa-check-circle"></i> Бесплатная консультация</div>
+                    <div><i class="fas fa-check-circle"></i> Смета в день обращения</div>
+                    <div><i class="fas fa-check-circle"></i> Выезд специалиста</div>
+                </div>
+            </div>
+            <div class="callback-form">
+                <h3>Заполните форму</h3>
+                <form id="leadForm">
+                    <div class="input-group">
+                        <i class="fas fa-user"></i>
+                        <input type="text" id="name" placeholder="Ваше имя" required>
+                    </div>
+                    <div class="input-group">
+                        <i class="fas fa-phone-alt"></i>
+                        <input type="tel" id="phone" placeholder="+7 (___) ___-__-__" required>
+                    </div>
+                    <button type="submit" class="callback-submit">Перезвоните мне <i class="fas fa-arrow-right"></i></button>
+                    <p class="privacy-text">Нажимая на кнопку, вы соглашаетесь с <a href="#">политикой обработки данных</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- О КОМПАНИИ -->
+<section id="about" class="about-section">
+    <div class="container about-wrapper">
+        <div class="about-text">
+            <h3>Goldline – геодезия нового уровня</h3>
+            <p>Компания Goldline основана в 2012 году и за годы работы выполнила более 450 проектов по всей России. Мы специализируемся на высокоточных геодезических измерениях с применением современных технологий: GNSS-приемники, наземное лазерное сканирование, беспилотные летательные аппараты.</p>
+            <p>Наши инженеры имеют многолетний опыт в строительстве промышленных объектов, жилых комплексов, автомобильных дорог и мостов. Каждый проект сопровождается детальными отчетами и цифровыми моделями, гарантируя надёжность и прозрачность работ.</p>
+            <div class="about-stats">
+                <div class="stat-item">
+                    <div class="stat-number">12+ лет</div>
+                    <div>на рынке геодезии</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">98%</div>
+                    <div>довольных клиентов</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">450+</div>
+                    <div>реализованных проектов</div>
+                </div>
+            </div>
+            <a href="#" class="btn-gold" style="margin-top: 20px; display: inline-block;" onclick="alert('Запросить коммерческое предложение: sales@goldline.ru')">Получить консультацию</a>
+        </div>
+        <div class="about-image">
+            <img src="https://sun9-2.userapi.com/s/v1/ig2/b47qtiC9mO16bVLzYzAGSUJLjqVh70Pk0SXanDgDpLBBifULZ5wybuQfpZ0a3BuOTph5yxhaUsolSxDC1szlcob9.jpg?quality=95&as=32x27,48x41,72x62,108x92,160x137,240x205,360x308,480x411,540x462,640x547,720x616,1080x924,1100x941&from=bu&u=oFDJx2JtSJD-XSwy6oqQxxMlujJQLTvd4O-B-puoqKI&cs=1100x0" alt="Геодезист с оборудованием" loading="lazy">
+        </div>
+    </div>
+</section>
+
+<!-- ПОДВАЛ -->
+<footer class="footer" id="contact-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-col">
+                <div class="footer-logo"><span>GOLD</span><span style="color:#ffffff;">LINE</span></div>
+                <p>Профессиональные геодезические услуги для строительства и инжиниринга.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
+                    <a href="#" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    <a href="#" aria-label="VK"><i class="fab fa-vk"></i></a>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>Навигация</h4>
+                <p><a href="#">Главная</a></p>
+                <p><a href="#services">Услуги</a></p>
+                <p><a href="#about">О компании</a></p>
+                <p><a href="#contact-footer">Контакты</a></p>
+            </div>
+            <div class="footer-col">
+                <h4>Контакты</h4>
+                <p><i class="fas fa-map-marker-alt" style="margin-right: 8px; color: var(--gold);"></i> Москва, ул. Геодезическая, 12</p>
+                <p><i class="fas fa-phone-alt" style="margin-right: 8px; color: var(--gold);"></i> +7 (495) 123-45-67</p>
+                <p><i class="fas fa-envelope" style="margin-right: 8px; color: var(--gold);"></i> info@goldline.ru</p>
+                <p><i class="fas fa-clock" style="margin-right: 8px; color: var(--gold);"></i> Пн-Пт: 9:00 – 19:00</p>
+            </div>
+            <div class="footer-col">
+                <h4>Лицензии и сертификаты</h4>
+                <p>СРО НП «Геодезия»</p>
+                <p>ISO 9001:2022</p>
+                <p>Член Национального объединения изыскателей</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Goldline — Геодезическая компания. Все права защищены.</p>
+        </div>
+    </div>
+</footer>
+
+<!-- КНОПКА И ОКНО ЧАТ-БОТА -->
+<div class="chat-button" id="chatButton">
+    <i class="fas fa-comment-dots"></i>
+</div>
+
+<div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+        <h3><i class="fas fa-robot"></i> Goldline Bot</h3>
+        <button class="chat-close" id="chatClose">×</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+        <div class="message bot">
+            <div class="bot-avatar"><i class="fas fa-robot" style="font-size: 14px;"></i></div>
+            <div class="message-content">
+                Здравствуйте! Я виртуальный помощник Goldline.<br>
+                Задайте мне вопрос о геодезических услугах! 😊
+            </div>
+        </div>
+    </div>
+    <div class="chat-input-area">
+        <input type="text" class="chat-input" id="chatInput" placeholder="Напишите ваш вопрос...">
+        <button class="chat-send" id="chatSend">
+            <i class="fas fa-paper-plane"></i>
+        </button>
+    </div>
+</div>
+
+<script>
+    // Ждем полной загрузки DOM
+    document.addEventListener('DOMContentLoaded', function() {
+
+        // ========== ЭЛЕМЕНТЫ ЧАТА ==========
+        const chatButton = document.getElementById('chatButton');
+        const chatWindow = document.getElementById('chatWindow');
+        const chatClose = document.getElementById('chatClose');
+        const chatMessages = document.getElementById('chatMessages');
+        const chatInput = document.getElementById('chatInput');
+        const chatSend = document.getElementById('chatSend');
+
+        // Проверяем что все элементы найдены
+        console.log('Chat elements:', {chatButton, chatWindow, chatClose, chatMessages, chatInput, chatSend});
+
+        // Открыть чат
+        if(chatButton) {
+            chatButton.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                console.log('Chat button clicked');
+                if(chatWindow) {
+                    chatWindow.classList.add('show');
+                }
+            });
+        }
+
+        // Закрыть чат
+        if(chatClose) {
+            chatClose.addEventListener('click', function(e) {
+                e.preventDefault();
+                console.log('Chat close clicked');
+                if(chatWindow) {
+                    chatWindow.classList.remove('show');
+                }
+            });
+        }
+
+        // ========== БАЗА ЗНАНИЙ БОТА ==========
+        const botResponses = {
+            'привет': 'Здравствуйте! Чем могу помочь? Расскажите о вашем проекте, и я подберу подходящие геодезические услуги.',
+            'здравствуй': 'Здравствуйте! Рад вас видеть. Какие геодезические работы вас интересуют?',
+            'добрый день': 'Добрый день! Чем могу быть полезен?',
+            'услуги': 'Мы предоставляем: топографическую съемку, лазерное сканирование, геодезический мониторинг, исполнительную съемку, инженерно-геодезические изыскания, BIM и кадастровые работы. Какой сервис вас интересует?',
+            'топографическая съемка': 'Топографическая съемка — создание цифровых моделей рельефа и планов участков масштаба 1:500. Стоимость от 15 000 руб/га. Срок выполнения 3-5 дней.',
+            'лазерное сканирование': '3D лазерное сканирование позволяет получить точное облако точек объектов. Используем FARO и Leica. Цена от 25 000 руб за объект.',
+            'мониторинг': 'Геодезический мониторинг — наблюдение за деформациями зданий и сооружений. Устанавливаем датчики и проводим регулярные измерения. Стоимость рассчитывается индивидуально.',
+            'исполнительная съемка': 'Исполнительная съемка — контроль геометрических параметров построенных объектов. Цена от 12 000 руб за объект.',
+            'изыскания': 'Инженерно-геодезические изыскания — полный комплекс работ для строительства. Включает топосъемку, создание опорной сети, вынос осей. Стоимость от 50 000 руб.',
+            'bim': 'Мы сопровождаем BIM-проекты, создаем цифровые двойники зданий, проводим кадастровые работы. Цена обсуждается индивидуально.',
+            'цена': 'Стоимость зависит от объема и сложности работ. Базовая топографическая съемка — от 15 000 руб/га. Для точного расчета оставьте заявку в форме или напишите подробности проекта.',
+            'стоимость': 'Цены начинаются от 12 000 рублей за исполнительную съемку. Для точной сметы нужен техзадание. Оставьте заявку — мы рассчитаем бесплатно!',
+            'сроки': 'Обычные сроки: топосъемка 3-5 дней, лазерное сканирование 2-4 дня, мониторинг от 1 месяца. Срочные заказы выполняем за 24 часа.',
+            'контакты': 'Телефон: +7 (495) 123-45-67<br>Email: info@goldline.ru<br>Адрес: Москва, ул. Геодезическая, 12<br>Режим работы: Пн-Пт 9:00-19:00',
+            'телефон': 'Наш телефон: +7 (495) 123-45-67. Звоните с 9 до 19 по будням!',
+            'адрес': 'Мы находимся по адресу: Москва, ул. Геодезическая, дом 12. Также работаем по всей России с выездом специалистов.',
+            'заявка': 'Чтобы оставить заявку, напишите ваше имя и телефон, и я передам данные менеджеру. Например: "Иван, +7 999 123-45-67"',
+            'компания': 'Goldline работает с 2012 года. Выполнили более 450 проектов по всей России. Мы используем современное оборудование и гарантируем точность измерений.',
+            'опыт': 'Более 12 лет на рынке геодезии. 98% клиентов рекомендуют нас.',
+            'спасибо': 'Пожалуйста! Обращайтесь. Если нужна помощь — пишите или звоните!',
+            'помощь': 'Я могу рассказать об услугах, ценах, сроках, контактах. Что вас интересует?'
+        };
+
+        // Функция поиска ответа
+        function getBotResponse(message) {
+            const lowerMsg = message.toLowerCase().trim();
+
+            for (const [key, response] of Object.entries(botResponses)) {
+                if (lowerMsg.includes(key)) {
+                    return response;
+                }
+            }
+
+            // Проверка на номер телефона
+            if (lowerMsg.match(/[\d\+\(\)\-\s]{10,}/)) {
+                return 'Спасибо за заявку! Я передал ваши данные менеджеру. Он свяжется с вами в ближайшее время. 📞';
+            }
+
+            return 'Спасибо за вопрос! Менеджер свяжется с вами для консультации. Или позвоните нам +7 (495) 123-45-67. Если хотите оставить заявку, напишите ваше имя и телефон.';
+        }
+
+        // Добавить сообщение в чат
+        function addMessage(text, isUser = false) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${isUser ? 'user' : 'bot'}`;
+
+            if (!isUser) {
+                const avatar = document.createElement('div');
+                avatar.className = 'bot-avatar';
+                avatar.innerHTML = '<i class="fas fa-robot" style="font-size: 14px;"></i>';
+                messageDiv.appendChild(avatar);
+            }
+
+            const content = document.createElement('div');
+            content.className = 'message-content';
+            content.innerHTML = text;
+            messageDiv.appendChild(content);
+
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        // Показать индикатор печати
+        function showTyping() {
+            const typingDiv = document.createElement('div');
+            typingDiv.className = 'message bot';
+            typingDiv.id = 'typingIndicator';
+
+            const avatar = document.createElement('div');
+            avatar.className = 'bot-avatar';
+            avatar.innerHTML = '<i class="fas fa-robot" style="font-size: 14px;"></i>';
+            typingDiv.appendChild(avatar);
+
+            const typingContent = document.createElement('div');
+            typingContent.className = 'typing-indicator';
+            typingContent.innerHTML = '<span></span><span></span><span></span>';
+            typingDiv.appendChild(typingContent);
+
+            chatMessages.appendChild(typingDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function hideTyping() {
+            const typing = document.getElementById('typingIndicator');
+            if (typing) typing.remove();
+        }
+
+        // Отправить сообщение
+        function sendMessage() {
+            const message = chatInput.value.trim();
+            if (!message) return;
+
+            addMessage(message, true);
+            chatInput.value = '';
+
+            showTyping();
+
+            setTimeout(() => {
+                hideTyping();
+                const response = getBotResponse(message);
+                addMessage(response);
+            }, 800);
+        }
+
+        // Обработчики событий чата
+        if(chatSend) {
+            chatSend.addEventListener('click', sendMessage);
+        }
+
+        if(chatInput) {
+            chatInput.addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') sendMessage();
+            });
+        }
+
+        // ========== ПЕРЕВОД ==========
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'ru',
+                includedLanguages: 'ru,en,zh-CN,es,fr,de,it,pt,ar,ja,ko,tr',
+                autoDisplay: false
+            }, 'google_translate_element');
+        }
+
+        function changeLanguage(langCode) {
+            var selectBox = document.querySelector('.goog-te-combo');
+            if (selectBox) {
+                selectBox.value = langCode;
+                selectBox.dispatchEvent(new Event('change'));
+            } else {
+                var checkExist = setInterval(function() {
+                    var select = document.querySelector('.goog-te-combo');
+                    if (select) {
+                        select.value = langCode;
+                        select.dispatchEvent(new Event('change'));
+                        clearInterval(checkExist);
+                    }
+                }, 100);
+            }
+        }
+
+        const translateBtn = document.getElementById('translateBtn');
+        const languageDropdown = document.getElementById('languageDropdown');
+
+        if(translateBtn) {
+            translateBtn.addEventListener('click', function(e) {
+                e.stopPropagation();
+                if(languageDropdown) languageDropdown.classList.toggle('show');
+            });
+        }
+
+        document.addEventListener('click', function(e) {
+            if(languageDropdown && translateBtn) {
+                if (!translateBtn.contains(e.target) && !languageDropdown.contains(e.target)) {
+                    languageDropdown.classList.remove('show');
+                }
+            }
+        });
+
+        document.querySelectorAll('.language-dropdown a').forEach(function(link) {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                var langCode = this.getAttribute('data-lang');
+                changeLanguage(langCode);
+                if(languageDropdown) languageDropdown.classList.remove('show');
+                localStorage.setItem('preferredLanguage', langCode);
+            });
+        });
+
+        var savedLang = localStorage.getItem('preferredLanguage');
+        if (savedLang) {
+            setTimeout(function() {
+                changeLanguage(savedLang);
+            }, 1000);
+        }
+
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+            anchor.addEventListener('click', function(e) {
+                var href = this.getAttribute('href');
+                if (href === "#" || href === "") return;
+                var targetElement = document.querySelector(href);
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Маска телефона
+        var phoneInput = document.getElementById('phone');
+        if(phoneInput) {
+            phoneInput.addEventListener('input', function(e) {
+                var x = e.target.value.replace(/\D/g, '').match(/(\d{0,1})(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+                if(!x) return;
+                e.target.value = !x[2] ? '+' + x[1] : '+' + x[1] + ' (' + x[2] + (x[3] ? ') ' + x[3] : '') + (x[4] ? '-' + x[4] : '') + (x[5] ? '-' + x[5] : '');
+            });
+        }
+
+        // Отправка формы
+        var leadForm = document.getElementById('leadForm');
+        if(leadForm) {
+            leadForm.addEventListener('submit', async function(e) {
+                e.preventDefault();
+                var name = document.getElementById('name').value.trim();
+                var phone = document.getElementById('phone').value.trim();
+
+                if(!name || !phone) {
+                    alert('Пожалуйста, заполните имя и телефон');
+                    return;
+                }
+
+                var submitBtn = this.querySelector('button[type="submit"]');
+                var originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Отправка...';
+                submitBtn.disabled = true;
+
+                try {
+                    var response = await fetch('/api/send-lead', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({ name: name, phone: phone, page: 'Goldline лендинг' })
+                    });
+
+                    alert('Спасибо! Мы перезвоним вам в течение 2 минут.');
+                    leadForm.reset();
+                } catch(err) {
+                    console.error(err);
+                    alert('Спасибо! Заявка принята. Мы свяжемся с вами.');
+                    leadForm.reset();
+                } finally {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }
+            });
+        }
+
+        setTimeout(function() {
+            var banner = document.querySelector('.goog-te-banner-frame');
+            if(banner) banner.style.display = 'none';
+            document.body.style.top = '0px';
+        }, 500);
+
+    }); // Конец DOMContentLoaded
+</script>
+
+<script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<div id="google_translate_element" style="display: none;"></div>
+
+</body>
+</html>
